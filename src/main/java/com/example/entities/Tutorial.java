@@ -38,7 +38,7 @@ public class Tutorial implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String tittle;
+    private String title;
     private String description;
     private boolean published;
 
