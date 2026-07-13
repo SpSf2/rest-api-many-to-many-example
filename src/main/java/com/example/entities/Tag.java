@@ -1,6 +1,5 @@
 package com.example.entities;
 
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -36,12 +35,11 @@ public class Tag implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String name;
 
-    @Builder.Default
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}
                 , mappedBy = "tags")
     @JsonIgnore
-    private Set<Tutorial> tutorials = new HashSet<>();
+    private final Set<Tutorial> tutorials = new java.util.HashSet<>();
 }

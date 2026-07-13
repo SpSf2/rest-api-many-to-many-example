@@ -103,9 +103,9 @@ public class TagController {
     @PutMapping("/tags/{id}")
     public ResponseEntity<Tag> updateTag(@PathVariable long id, @RequestBody Tag tagRequest) {
         Tag tag = tagRepository.findById(id)
-        .orElseThrow(() -> new ResourceNotFoundException("TagId " + id + "not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("TagId " + id + "not found"));
 
-        tag.setName(tagRequest.getName());
+            tag.setName(tagRequest.getName());
 
         return new ResponseEntity<>(tagRepository.save(tag), HttpStatus.OK);
     }
