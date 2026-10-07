@@ -46,6 +46,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
+import com.example.spring_security_jwt.dto.MessageResponse;
+
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
@@ -89,5 +91,14 @@ public class ControllerExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(errors);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<MessageResponse> handleIllegalArgumentException(
+            IllegalArgumentException exception) {
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new MessageResponse(exception.getMessage()));
     }
 }
