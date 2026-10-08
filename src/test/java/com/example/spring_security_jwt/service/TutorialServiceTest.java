@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,8 +16,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.example.entities.Tutorial;
 import com.example.repository.TutorialRepository;
+import com.example.service.impl.TutorialServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName ("Test de TutorialService")
 class TutorialServiceTest {
 
     @Mock
